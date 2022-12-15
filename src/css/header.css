@@ -1,0 +1,60 @@
+/* HEADER */
+.header
+{
+    background: linear-gradient(#CAC9EE, #E1D3EE);
+    color: black;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    z-index: 800;
+    padding: 2px;
+    padding-top: 4px;
+    padding-right: 20px;
+    margin: auto;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.header button
+{
+    margin: 2px 4px;
+    float: unset;
+    background: transparent;
+    color: #000;
+    border: none;
+    max-height: 36px;
+}
+
+.header button:focus,
+.header button:active
+{
+    box-shadow: 0 0 0 0.2rem #00d99d50;
+    background-color:#00D99D!important;
+    color: black!important;
+}
+
+.header button:hover,
+.header .btn:hover
+{
+    background: #afa7c5;
+    color: black;
+    border: none;
+}
+
+.header .title
+{
+    color: rgb(25, 25, 25);
+    font-size: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    float: left;
+    margin-left: 10px;
+}
+
+.header .btn-row
+{
+    position: absolute;
+    right: 10px;
+}

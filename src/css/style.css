@@ -1,0 +1,67 @@
+/* GENERAL STYLE */
+*
+{
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6, p, .alert
+{
+    font-family: Futura_Light_Regular;
+    letter-spacing: 1px;
+    color: white;
+}
+
+body
+{
+    background: grey;
+}
+
+a
+{
+    color: #00D99D;
+}
+
+a:hover
+{
+    color: #02B584;
+}
+
+.App-header
+{
+    background: radial-gradient(#414753, #282c34);
+}
+
+/* CUSTOM FONTS */
+
+@font-face {
+    font-family: Sunscreen_Triline;
+    src: local('Sunscreen-Triline'), url("../fonts/Sunscreen-Triline.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Sunscreen_Unscreened;
+    src: local('Sunscreen-Unscreened'), url("../fonts/Sunscreen-Unscreened.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Futura_Light_Regular;
+    src: local('Futura-Light-Regular'), url("../fonts/Futura-Light-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Futura_Bold;
+    src: local('Futura-Bold'), url("../fonts/Futura-Bold.otf") format("opentype");
+}
+
+Button
+{
+    font-family: Sunscreen_Unscreened;
+}
+
+.page
+{
+    position: absolute;
+    width: 100%;
+    margin-top: 70px;
+    padding-bottom: 60px;
+}
