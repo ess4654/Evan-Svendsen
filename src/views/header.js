@@ -28,6 +28,7 @@ export class Header extends PureComponent
                     <a href="#skills"><Button className="default">Skills</Button></a>
                     <a href="#games"><Button className="default">Games</Button></a>
                     <a href="#jams"><Button className="default">Game Jams</Button></a>
+                    <a href="#contact"><Button className="default">Contact</Button></a>
                 </div>
             </header>
         </>

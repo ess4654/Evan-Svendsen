@@ -24,6 +24,7 @@
     color: #000;
     border: none;
     max-height: 36px;
+    font-weight: bold;
 }
 
 .header button:focus,

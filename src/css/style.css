@@ -18,12 +18,12 @@ body
 
 a
 {
-    color: #00D99D;
+    color: #8becd0;
 }
 
 a:hover
 {
-    color: #02B584;
+    color: #45e4ba;
 }
 
 .App-header
@@ -64,4 +64,25 @@ Button
     width: 100%;
     margin-top: 70px;
     padding-bottom: 60px;
+}
+
+.avatar
+{
+    margin-top: 15vw;
+    border-radius: 50%;
+    border: 3px white solid;
+    outline: 8px grey solid;
+    height: 250px;
+    width: 250px;
+    margin-bottom: 15px;
+}
+
+.cover
+{
+    width: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    top: -20px;
 }

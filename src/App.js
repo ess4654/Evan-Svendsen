@@ -2,13 +2,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './css/style.css';
 
-import avatar from "./img/avatar.png";
+import {
+  avatar, cover
+} from "./img";
 
 import {
   Header,
   Footer,
   Info,
-  InfoCredentials
+  InfoCredentials,
+  InfoSkills,
+  InfoGames,
+  InfoGameJams,
+  InfoFavoriteGames
 } from './views';
 
 function App() {
@@ -21,8 +27,9 @@ function App() {
         {/* Into Info */}
         <Info id="home">
           <div>
-            <img src={avatar} alt="Evan Svendsen" />
-            <p style={{fontSize:"18px"}}>Evan Svendsen is a professional website and video game developer with over a decade of programming experience. He has 4 years of experience using Unity 3D for building, testing, and publishing games. He is also a full stack website developer with experience using React JS and Bootstrap for creating stunning websites.</p>
+            <img className="cover" src={cover} />
+            <img className="avatar" src={avatar} alt="Evan Svendsen" />
+            <p style={{fontSize: 20}}>Evan Svendsen is a professional website and video game developer with over a decade of programming experience. He has 4 years of experience using Unity 3D for building, testing, and publishing games. He is also a full stack website developer with experience using React JS and Bootstrap for creating stunning websites.</p>
           </div>
         </Info>
 
@@ -30,19 +37,22 @@ function App() {
         <InfoCredentials />
 
         {/* Skills */}
-        <Info id="skills" title="Skills">
-        </Info>
+        <InfoSkills />
 
         {/* Games */}
-        <Info id="games" title="Games Published">
-        </Info>
+        <InfoGames />
         
         {/* Game Jams */}
-        <Info id="jams" title="Game Jams">
-        </Info>
+        <InfoGameJams />
 
         {/* Favorite Games */}
-        <Info id="favorite-games" title="Favorite Games">
+        <InfoFavoriteGames />
+
+        {/* Contact */}
+        <Info id="contact" title="Contact">
+          <p style={{textAlign: "left", fontSize: 24}}>
+          📧Email: <a href="mailto:evan.svendsen.1997@gmail.com">evan.svendsen.1997@gmail.com</a>
+          </p>
         </Info>
 
       </div>
