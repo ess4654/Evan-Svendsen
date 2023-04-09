@@ -9,4 +9,5 @@ export {Game} from "./game-card";
 export {GameCardMini} from "./game-card-mini";
 export {InfoGames} from "./info-games";
 export {InfoGameJams} from "./info-gamejams";
+export {InfoPlugins} from "./info-plugins";
 export {InfoFavoriteGames} from "./info-favorite-games";

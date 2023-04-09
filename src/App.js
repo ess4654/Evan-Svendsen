@@ -14,6 +14,7 @@ import {
   InfoSkills,
   InfoGames,
   InfoGameJams,
+  InfoPlugins,
   InfoFavoriteGames
 } from './views';
 
@@ -45,13 +46,17 @@ function App() {
         {/* Game Jams */}
         <InfoGameJams />
 
+        {/* Plugins */}
+        <InfoPlugins />
+
         {/* Favorite Games */}
         <InfoFavoriteGames />
 
         {/* Contact */}
         <Info id="contact" title="Contact">
           <p style={{textAlign: "left", fontSize: 24}}>
-          📧Email: <a href="mailto:evan.svendsen.1997@gmail.com">evan.svendsen.1997@gmail.com</a>
+          📧Email: <a href="mailto:evan.svendsen.1997@gmail.com">evan.svendsen.1997@gmail.com</a><br/>
+          Linked In: <a href="https://www.linkedin.com/in/evan-svendsen/" target="_blank">https://www.linkedin.com/in/evan-svendsen/</a>
           </p>
         </Info>
 

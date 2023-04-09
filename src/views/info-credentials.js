@@ -1,12 +1,10 @@
 import React, { PureComponent, memo } from "react";
+import { csharp, azureAI } from "../img/credentials";
 
 import {
     Info,
     Credential
 } from './index';
-
-import csharp from "../img/credentials/c_sharp_certificate.png";
-import azureAI from "../img/credentials/azure_ai_certificate.png";
 
 export class InfoCredentials extends PureComponent
 {

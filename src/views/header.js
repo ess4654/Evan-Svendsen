@@ -1,7 +1,8 @@
 import React, { PureComponent, memo } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-    faHouse,
+    faCertificate, faEnvelope, faGamepad,
+    faHouse, faStar, faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
 import "../css/header.css";
@@ -24,11 +25,11 @@ export class Header extends PureComponent
             <header className="header">
                 <a className="title" href="#home"><FontAwesomeIcon icon={faHouse} />&nbsp;&nbsp;&nbsp;Evan Svendsen</a>
                 <div className="btn-row">
-                    <a href="#certificates"><Button className="default">Certificates</Button></a>
-                    <a href="#skills"><Button className="default">Skills</Button></a>
-                    <a href="#games"><Button className="default">Games</Button></a>
-                    <a href="#jams"><Button className="default">Game Jams</Button></a>
-                    <a href="#contact"><Button className="default">Contact</Button></a>
+                    <a href="#certificates"><Button className="default"><FontAwesomeIcon icon={faCertificate} />&nbsp;Certificates</Button></a>
+                    <a href="#skills"><Button className="default"><FontAwesomeIcon icon={faStar} />&nbsp;Skills</Button></a>
+                    <a href="#games"><Button className="default"><FontAwesomeIcon icon={faGamepad} />&nbsp;Games</Button></a>
+                    <a href="#plugins"><Button className="default"><FontAwesomeIcon icon={faWrench} />&nbsp;Plugins</Button></a>
+                    <a href="#contact"><Button className="default"><FontAwesomeIcon icon={faEnvelope} />&nbsp;Contact</Button></a>
                 </div>
             </header>
         </>

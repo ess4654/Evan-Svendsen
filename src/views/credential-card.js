@@ -19,8 +19,8 @@ export class Credential extends Component
         <>
             <a className="credential-link" href={this.props.href} target="_blank">
             <Card className="credential">
-                <h3 className="card-title">{this.props.name}</h3>
-                <img className="card-img-top" src={this.props.src} alt={this.props.name} style={{minHeight:160}} />
+                <h3 className="card-title" style={{...this.props.nameStyle}}>{this.props.name}</h3>
+                <img className="card-img-top" src={this.props.src} alt={this.props.name} style={{minHeight: 160, ...this.props.srcStyle}} />
                 <h6 style={{fontSize:11, color: "#636363", marginBottom: 0, marginTop: 2}}>{this.props.credentialID ? "Credential ID: " : ""}{this.props.credentialID}</h6>
                 <h6 className="card-body">{this.props.description}</h6>
             </Card>
