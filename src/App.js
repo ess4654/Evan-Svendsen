@@ -65,7 +65,7 @@ make Evan an invaluable asset to companies ranging from startups to industry lea
           <p style={{textAlign: "left", fontSize: 24}}>
           📧Email: <a href="mailto:evan.svendsen.1997@gmail.com">evan.svendsen.1997@gmail.com</a><br/>
           Linked In: <a href="https://www.linkedin.com/in/evan-svendsen/" target="_blank" rel="noreferrer">https://www.linkedin.com/in/evan-svendsen/</a><br/>
-          <a href="/Resume%202023.pdf" download="Evan Svendsen.pdf">Resume / CV</a><br/>
+          <a href={window.location.href + "/Resume%202023.pdf"} download="Evan Svendsen.pdf">Resume / CV</a><br/>
           </p>
         </Info>
 
