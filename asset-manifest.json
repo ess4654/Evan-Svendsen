@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/Evan-Svendsen/static/css/main.04abbd29.css",
+    "main.js": "/Evan-Svendsen/static/js/main.d846998b.js",
+    "static/js/787.1e33292e.chunk.js": "/Evan-Svendsen/static/js/787.1e33292e.chunk.js",
+    "static/media/halloween-decoration-sandbox.gif": "/Evan-Svendsen/static/media/halloween-decoration-sandbox.58e4285d123b570c655f.gif",
+    "static/media/cover.png": "/Evan-Svendsen/static/media/cover.ea60a5986645419d73e7.png",
+    "static/media/Hogwarts Legacy.png": "/Evan-Svendsen/static/media/Hogwarts Legacy.3adae29f21872767208d.png",
+    "static/media/Heroes 5.png": "/Evan-Svendsen/static/media/Heroes 5.e849e359d68d185b2cb2.png",
+    "static/media/avatar.png": "/Evan-Svendsen/static/media/avatar.61c1d048811d0c59d2a1.png",
+    "static/media/Lego Starwars.png": "/Evan-Svendsen/static/media/Lego Starwars.8e29c7189733103f5537.png",
+    "static/media/Witcher 3.png": "/Evan-Svendsen/static/media/Witcher 3.829eea1dd8a404c42f5a.png",
+    "static/media/Castlevania SOTN.png": "/Evan-Svendsen/static/media/Castlevania SOTN.6650dc2d32d03abb9ed1.png",
+    "static/media/industrial-shapes.png": "/Evan-Svendsen/static/media/industrial-shapes.01dc4c2b2d51dd89f7ad.png",
+    "static/media/bolletji.png": "/Evan-Svendsen/static/media/bolletji.4e776b1ad4bb12a592e2.png",
+    "static/media/c_sharp_certificate.png": "/Evan-Svendsen/static/media/c_sharp_certificate.a4090368f5a79f8b3e5d.png",
+    "static/media/Futura-Light-Regular.otf": "/Evan-Svendsen/static/media/Futura-Light-Regular.098a3201116cb91a0816.otf",
+    "static/media/azure_ai_certificate.png": "/Evan-Svendsen/static/media/azure_ai_certificate.31cb447bf7b705562607.png",
+    "static/media/Sunscreen-Triline.otf": "/Evan-Svendsen/static/media/Sunscreen-Triline.556c5de52fc84d91188c.otf",
+    "static/media/linux.png": "/Evan-Svendsen/static/media/linux.41771a3d994de2deee16.png",
+    "static/media/Futura-Bold.otf": "/Evan-Svendsen/static/media/Futura-Bold.b3dd2dcb9b51257052ca.otf",
+    "static/media/stencyl.png": "/Evan-Svendsen/static/media/stencyl.13e6c95d363763bae6dc.png",
+    "static/media/ios.png": "/Evan-Svendsen/static/media/ios.b42c6fcc648d06451c4d.png",
+    "static/media/newgrounds.png": "/Evan-Svendsen/static/media/newgrounds.73662fe63b8ee58e2e22.png",
+    "static/media/BASIC.png": "/Evan-Svendsen/static/media/BASIC.5fae04b327908d145706.png",
+    "static/media/postgre.png": "/Evan-Svendsen/static/media/postgre.f868bdc70550eaddc8e8.png",
+    "static/media/speech-bubble.png": "/Evan-Svendsen/static/media/speech-bubble.ff2164f6d3bb9d14aefe.png",
+    "static/media/Sunscreen-Unscreened.otf": "/Evan-Svendsen/static/media/Sunscreen-Unscreened.cad9411ccae53c13915b.otf",
+    "static/media/paint-brush.png": "/Evan-Svendsen/static/media/paint-brush.974424aba63cd538f95f.png",
+    "static/media/REST API.png": "/Evan-Svendsen/static/media/REST API.6c93dcb38b35900cfcd3.png",
+    "static/media/sql.png": "/Evan-Svendsen/static/media/sql.ef7b5cce1693a12a9b53.png",
+    "static/media/unreal.png": "/Evan-Svendsen/static/media/unreal.e7b5a88cf9e521124a3b.png",
+    "static/media/js.png": "/Evan-Svendsen/static/media/js.8bc7ba2741380af6c309.png",
+    "index.html": "/Evan-Svendsen/index.html",
+    "main.04abbd29.css.map": "/Evan-Svendsen/static/css/main.04abbd29.css.map",
+    "main.d846998b.js.map": "/Evan-Svendsen/static/js/main.d846998b.js.map",
+    "787.1e33292e.chunk.js.map": "/Evan-Svendsen/static/js/787.1e33292e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04abbd29.css",
+    "static/js/main.d846998b.js"
+  ]
+}
