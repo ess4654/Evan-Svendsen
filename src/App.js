@@ -38,7 +38,7 @@ tests, and publishes immersive games, while his full stack web development skill
 Bootstrap, enable him to create stunning, user-friendly websites. Proficient in both Android and iOS
 mobile development, Evan consistently delivers high-quality results across diverse projects.
 His commitment to continuous learning and exceptional soft skills, such as communication and leadership,
-make Evan an invaluable asset to companies ranging from startups to industry leaders.</p>
+make Evan an invaluable asset to companies ranging from startups to industry leaders. </p>
           </div>
         </Info>
 
