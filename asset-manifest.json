@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/Evan-Svendsen/static/css/main.04abbd29.css",
-    "main.js": "/Evan-Svendsen/static/js/main.d846998b.js",
+    "main.js": "/Evan-Svendsen/static/js/main.6e6865ab.js",
     "static/js/787.1e33292e.chunk.js": "/Evan-Svendsen/static/js/787.1e33292e.chunk.js",
     "static/media/halloween-decoration-sandbox.gif": "/Evan-Svendsen/static/media/halloween-decoration-sandbox.58e4285d123b570c655f.gif",
-    "static/media/cover.png": "/Evan-Svendsen/static/media/cover.ea60a5986645419d73e7.png",
     "static/media/Hogwarts Legacy.png": "/Evan-Svendsen/static/media/Hogwarts Legacy.3adae29f21872767208d.png",
+    "static/media/cover.png": "/Evan-Svendsen/static/media/cover.40089176183529c508c3.png",
     "static/media/Heroes 5.png": "/Evan-Svendsen/static/media/Heroes 5.e849e359d68d185b2cb2.png",
     "static/media/avatar.png": "/Evan-Svendsen/static/media/avatar.61c1d048811d0c59d2a1.png",
     "static/media/Lego Starwars.png": "/Evan-Svendsen/static/media/Lego Starwars.8e29c7189733103f5537.png",
@@ -33,11 +33,11 @@
     "static/media/js.png": "/Evan-Svendsen/static/media/js.8bc7ba2741380af6c309.png",
     "index.html": "/Evan-Svendsen/index.html",
     "main.04abbd29.css.map": "/Evan-Svendsen/static/css/main.04abbd29.css.map",
-    "main.d846998b.js.map": "/Evan-Svendsen/static/js/main.d846998b.js.map",
+    "main.6e6865ab.js.map": "/Evan-Svendsen/static/js/main.6e6865ab.js.map",
     "787.1e33292e.chunk.js.map": "/Evan-Svendsen/static/js/787.1e33292e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04abbd29.css",
-    "static/js/main.d846998b.js"
+    "static/js/main.6e6865ab.js"
   ]
 }
