@@ -68,7 +68,7 @@ Button
 
 .avatar
 {
-    margin-top: 15vw;
+    margin-top: 5vw;
     border-radius: 50%;
     border: 3px white solid;
     outline: 8px grey solid;
@@ -79,10 +79,24 @@ Button
 
 .cover
 {
+    min-height: 300px;
     width: 100%;
     left: 0;
     right: 0;
     position: absolute;
     z-index: -1;
-    top: -20px;
+    top: -150px;
+}
+
+#home
+{
+    text-align: left;
+}
+
+@media (max-width: 670px)
+{
+    #home
+    {
+        text-align: center;
+    }
 }

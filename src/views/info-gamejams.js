@@ -8,15 +8,9 @@ import {
 
 export class InfoGameJams extends PureComponent
 {
-  constructor(props)
-  {
-    super(props);
-  }
-
   render()
   {
     return(
-    <>
     <Info id="jams" title="Game Jams">
         <Game
           name="Rootin Tootin Meowin Shootin"
@@ -97,7 +91,6 @@ export class InfoGameJams extends PureComponent
           cornerIcon={Unity}
         />
     </Info>
-    </>
     );
   }
 }

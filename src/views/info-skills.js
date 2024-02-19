@@ -19,15 +19,9 @@ import {
 
 export class InfoSkills extends PureComponent
 {
-  constructor(props)
-  {
-    super(props);
-  }
-
   render()
   {
     return(
-    <>
     <Info id="skills" title="Skills" style={{textAlign: "left"}}>
         <b><h5>Programming Languages</h5></b>
         <div className="d-flex flex-wrap">
@@ -89,7 +83,6 @@ export class InfoSkills extends PureComponent
             <Skill name="Dedication" icon={muscle} fontStyle={{fontSize: 20, paddingBottom: 4}} />
         </div>
     </Info>
-    </>
     );
   }
 }

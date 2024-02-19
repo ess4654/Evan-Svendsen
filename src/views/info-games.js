@@ -9,15 +9,9 @@ import {
 
 export class InfoGames extends PureComponent
 {
-  constructor(props)
-  {
-    super(props);
-  }
-
   render()
   {
     return(
-    <>
     <Info id="games" title="Games Published">
         <Game
           name="Halloween Decoration Sandbox"
@@ -60,7 +54,6 @@ export class InfoGames extends PureComponent
           cornerIcon={newgrounds}
         />
     </Info>
-    </>
     );
   }
 }

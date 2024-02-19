@@ -8,15 +8,9 @@ import {
 
 export class InfoPlugins extends PureComponent
 {
-  constructor(props)
-  {
-    super(props);
-  }
-
   render()
   {
     return(
-    <>
     <Info id="plugins" title="Plugins">
       <div className="d-flex flex-wrap">
         <Credential
@@ -53,7 +47,6 @@ export class InfoPlugins extends PureComponent
         
       </div>
     </Info>
-    </>
     );
   }
 }

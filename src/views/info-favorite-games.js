@@ -15,15 +15,9 @@ import {
 
 export class InfoFavoriteGames extends PureComponent
 {
-  constructor(props)
-  {
-    super(props);
-  }
-
   render()
   {
     return(
-    <>
     <Info id="favorite-games" title="Favorite Games">
     <div className="d-flex flex-wrap">
         <GameCardMini
@@ -52,7 +46,6 @@ export class InfoFavoriteGames extends PureComponent
         />
     </div>
     </Info>
-    </>
     );
   }
 }

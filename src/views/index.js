@@ -1,12 +1,8 @@
-export {Header} from "./header";
-export {Footer} from "./footer";
-export {Credential} from "./credential-card";
+export {Header, Footer} from "./components";
+export {Credential, Skill, GameCardMini, Game, Website} from "./cards";
 export {Info} from "./info-section";
 export {InfoCredentials} from "./info-credentials";
-export {Skill} from "./skill-card";
 export {InfoSkills} from "./info-skills";
-export {Game} from "./game-card";
-export {GameCardMini} from "./game-card-mini";
 export {InfoGames} from "./info-games";
 export {InfoGameJams} from "./info-gamejams";
 export {InfoPlugins} from "./info-plugins";
