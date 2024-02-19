@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.68a083f9.css",
-    "main.js": "./static/js/main.f616b15e.js",
+    "main.css": "./static/css/main.c468131b.css",
+    "main.js": "./static/js/main.db075d38.js",
     "reactPlayerYouTube.js": "./static/js/reactPlayerYouTube.f33ecb96.chunk.js",
     "reactPlayerSoundCloud.js": "./static/js/reactPlayerSoundCloud.c2149ebb.chunk.js",
     "reactPlayerVimeo.js": "./static/js/reactPlayerVimeo.df089121.chunk.js",
@@ -298,12 +298,15 @@
     "static/media/Spine_Arcade.mp4": "./static/media/Spine_Arcade.5c1c37f8599ff828f417.mp4",
     "static/media/Spine_Phaser.mp4": "./static/media/Spine_Phaser.363e831c8a3b9ccb3b66.mp4",
     "static/media/hds-sandbox.png": "./static/media/hds-sandbox.26251194574a3f06f18a.png",
+    "static/media/cds2.png": "./static/media/cds2.6141d6f5e0f1a3e8a795.png",
     "static/media/Hiker_Link.png": "./static/media/Hiker_Link.026b3edff1cf9fc4c690.png",
     "static/media/stud-collector.png": "./static/media/stud-collector.aea404670b43ffef05a7.png",
     "static/media/hds-stickers.png": "./static/media/hds-stickers.a70d939e612787614c50.png",
     "static/media/beat-the-markets-2.png": "./static/media/beat-the-markets-2.e80c4c5ea6c267c55e99.png",
+    "static/media/online-ware.png": "./static/media/online-ware.1511d7287c7a106745ee.png",
     "static/media/Hogwarts Legacy.png": "./static/media/Hogwarts Legacy.3adae29f21872767208d.png",
     "static/media/cover.png": "./static/media/cover.40089176183529c508c3.png",
+    "static/media/deal-stealer.png": "./static/media/deal-stealer.bd6c37a9100ef41190ea.png",
     "static/media/Heroes 5.png": "./static/media/Heroes 5.e849e359d68d185b2cb2.png",
     "static/media/avatar.png": "./static/media/avatar.88bee351faddf8713604.png",
     "static/media/Mr_Cool_Icecream.png": "./static/media/Mr_Cool_Icecream.ba9f49eb4502f361fdbc.png",
@@ -335,12 +338,12 @@
     "static/media/sql.png": "./static/media/sql.ef7b5cce1693a12a9b53.png",
     "static/media/unreal.png": "./static/media/unreal.e7b5a88cf9e521124a3b.png",
     "static/media/js.png": "./static/media/js.8bc7ba2741380af6c309.png",
-    "static/media/ExtendedStringTests.txt": "./static/media/ExtendedStringTests.753fdb5fad7e834cca07.txt",
+    "static/media/ExtendedStringTests.txt": "./static/media/ExtendedStringTests.1d159e34d35508a8e45f.txt",
     "static/media/ExtendedStrings.txt": "./static/media/ExtendedStrings.5f61318d40c8f284a402.txt",
     "static/media/ExtendedTextureTests.txt": "./static/media/ExtendedTextureTests.944c76dd3d5a98bfafdf.txt",
     "index.html": "./index.html",
-    "main.68a083f9.css.map": "./static/css/main.68a083f9.css.map",
-    "main.f616b15e.js.map": "./static/js/main.f616b15e.js.map",
+    "main.c468131b.css.map": "./static/css/main.c468131b.css.map",
+    "main.db075d38.js.map": "./static/js/main.db075d38.js.map",
     "reactPlayerYouTube.f33ecb96.chunk.js.map": "./static/js/reactPlayerYouTube.f33ecb96.chunk.js.map",
     "reactPlayerSoundCloud.c2149ebb.chunk.js.map": "./static/js/reactPlayerSoundCloud.c2149ebb.chunk.js.map",
     "reactPlayerVimeo.df089121.chunk.js.map": "./static/js/reactPlayerVimeo.df089121.chunk.js.map",
@@ -635,7 +638,7 @@
     "6453.5dacb3be.chunk.js.map": "./static/js/6453.5dacb3be.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68a083f9.css",
-    "static/js/main.f616b15e.js"
+    "static/css/main.c468131b.css",
+    "static/js/main.db075d38.js"
   ]
 }
