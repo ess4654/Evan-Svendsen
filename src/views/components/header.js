@@ -41,7 +41,7 @@ export class Header extends Component
                     <NavButton link="/Evan-Svendsen/#games" icon={faGamepad} text="Games" />
                     <NavButton link="/Evan-Svendsen/#certificates" icon={faCertificate} text="Certificates" />
                     <NavButton link="/Evan-Svendsen/#skills" icon={faStar} text="Skills" />
-                    {/*<NavButton link="/Evan-Svendsen/demo-reel#code" icon={faLaptopCode} text="Code" />*/}
+                    <NavButton link="/Evan-Svendsen/demo-reel#code" icon={faLaptopCode} text="Code" />
                     <NavButton link="/Evan-Svendsen/demo-reel#spine" icon={faBezierCurve} text="Spine Animation" />
                     <NavButton link="/Evan-Svendsen/demo-reel#websites" icon={faGlobe} text="Websites" />
                     <NavButton link="/Evan-Svendsen/demo-reel#ui-ux" icon={faObjectGroup} text="UI/UX Design" />

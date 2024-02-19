@@ -1,0 +1,162 @@
+﻿/*
+ UEXTENSIONS TESTS
+ EXTENDED TEXTURE TESTS
+ TEST FOR VERSION: v1.3
+ v1.0
+ LAST EDITED: SATURDAY JANUARY 6, 2024
+ COPYRIGHT © TECH SKULL STUDIOS
+*/
+
+using Helpers.Extensions;
+using NUnit.Framework;
+using System.Threading.Tasks;
+using Tests.Runtime;
+using UnityEngine;
+
+namespace UExtensions.Tests
+{
+    [Category(Category)]
+    internal sealed class ExtendedTextureTests : TestsBase
+    {
+        Texture2D texture;
+
+        protected override Task RunTests()
+        {
+            texture = Resources.Load<Texture2D>("Texture");
+            Assert.IsNotNull(texture);
+
+            NullTests();
+            ResizeTests();
+            FlipTests();
+            RotationTests();
+            ColorTests();
+
+            Assert.IsNotNull(texture.ToSprite());
+            Assert.AreEqual(texture, texture.ToSprite().texture);
+            return Task.CompletedTask;
+        }
+
+        void NullTests()
+        {
+            Texture2D nullTex = null;
+            Assert.DoesNotThrow(() => nullTex.Rescale(100, 100));
+            Assert.DoesNotThrow(() => nullTex.Flip());
+            Assert.DoesNotThrow(() => nullTex.Rotate());
+            Assert.DoesNotThrow(() => nullTex.ChangeColor(Color.white));
+            Assert.DoesNotThrow(() => nullTex.ToBW());
+            Assert.DoesNotThrow(() => nullTex.ToSprite());
+
+            Assert.IsNull(nullTex.Rescale(100, 100));
+            Assert.IsNull(nullTex.Flip());
+            Assert.IsNull(nullTex.Rotate());
+            Assert.IsNull(nullTex.ChangeColor(Color.white));
+            Assert.IsNull(nullTex.ToBW());
+            Assert.IsNull(nullTex.ToSprite());
+        }
+
+        void ResizeTests()
+        {
+            var rescale = texture.Rescale(8, 8);
+            Assert.AreEqual(8, rescale.width);
+            Assert.AreEqual(8, rescale.height);
+            
+            //check larger scale
+            rescale = texture.Rescale(128, 72);
+            Assert.AreEqual(128, rescale.width);
+            Assert.AreEqual(72, rescale.height);
+
+            //check less scale
+            rescale = texture.Rescale(1, 1);
+            Assert.AreEqual(1, rescale.width);
+            Assert.AreEqual(1, rescale.height);
+
+            //check zero scale
+            rescale = texture.Rescale(0, 0);
+            Assert.AreEqual(1, rescale.width);
+            Assert.AreEqual(1, rescale.height);
+
+            //check negative scale
+            Assert.DoesNotThrow(() => texture.Rescale(-1, -1));
+        }
+
+        void FlipTests()
+        {
+            var upsideDown = texture.Flip();
+            var reversed = texture.Flip(false);
+
+            Assert.AreEqual(Color.red, upsideDown.GetPixel(0, 0));
+            Assert.AreEqual(Color.green, upsideDown.GetPixel(3, 0));
+            Assert.AreEqual(Color.blue, upsideDown.GetPixel(0, 3));
+            Assert.AreEqual(Color.black, upsideDown.GetPixel(3, 3));
+
+            Assert.AreEqual(Color.black, reversed.GetPixel(0, 0));
+            Assert.AreEqual(Color.blue, reversed.GetPixel(3, 0));
+            Assert.AreEqual(Color.green, reversed.GetPixel(0, 3));
+            Assert.AreEqual(Color.red, reversed.GetPixel(3, 3));
+        }
+
+        void RotationTests()
+        {
+            var clockwise = texture.Rotate();
+            var counterClockwise = texture.Rotate(false);
+
+            Assert.AreEqual(Color.black, clockwise.GetPixel(0, 0));
+            Assert.AreEqual(Color.green, clockwise.GetPixel(3, 0));
+            Assert.AreEqual(Color.blue, clockwise.GetPixel(0, 3));
+            Assert.AreEqual(Color.red, clockwise.GetPixel(3, 3));
+
+            Assert.AreEqual(Color.red, counterClockwise.GetPixel(0, 0));
+            Assert.AreEqual(Color.blue, counterClockwise.GetPixel(3, 0));
+            Assert.AreEqual(Color.green, counterClockwise.GetPixel(0, 3));
+            Assert.AreEqual(Color.black, counterClockwise.GetPixel(3, 3));
+        }
+
+        void ColorTests()
+        {
+            var copy = new Texture2D(texture.width, texture.height);
+            Graphics.CopyTexture(texture, copy);
+
+            //check color modification
+            copy.ChangeColor(Color.cyan);
+            Assert.AreEqual(Color.cyan, copy.GetPixel(0, 0));
+            Assert.AreEqual(Color.cyan, copy.GetPixel(3, 0));
+            Assert.AreEqual(Color.cyan, copy.GetPixel(0, 3));
+            Assert.AreEqual(Color.cyan, copy.GetPixel(3, 3));
+
+            //check black and white
+            var BW = texture.ToBW();
+            AssertHelper.ApproximatelyEqual(new Color(0.0722f, 0.0722f, 0.0722f), BW.GetPixel(0, 0));
+            Assert.AreEqual(Color.black, BW.GetPixel(3, 0));
+            AssertHelper.ApproximatelyEqual(new Color(0.2126f, 0.2126f, 0.2126f), BW.GetPixel(0, 3));
+            AssertHelper.ApproximatelyEqual(new Color(0.7152f, 0.7152f, 0.7152f), BW.GetPixel(3, 3));
+
+            //check inverse
+            var inverse = texture.Inverse();
+            Assert.AreEqual(new Color(1f, 1f, 0f, 1f), inverse.GetPixel(0, 0));
+            Assert.AreEqual(Color.white, inverse.GetPixel(3, 0));
+            Assert.AreEqual(Color.cyan, inverse.GetPixel(0, 3));
+            Assert.AreEqual(Color.magenta, inverse.GetPixel(3, 3));
+
+            //check colored textures
+            var created = ExtendedTextures.CreateFromColor(Color.yellow);
+            Assert.IsNotNull(created);
+            Assert.AreEqual(Color.yellow, created.GetPixel(0, 0));
+            Assert.AreEqual(101, ExtendedTextures.CreateFromColor(Color.yellow, 101, 2).width);
+            Assert.AreEqual(2, ExtendedTextures.CreateFromColor(Color.yellow, 101, 2).height);
+            Assert.AreEqual(Color.clear, ExtendedTextures.transparent.GetPixel(0, 0));
+            Assert.AreEqual(Color.black, ExtendedTextures.black.GetPixel(0, 0));
+            Assert.AreEqual(Color.white, ExtendedTextures.white.GetPixel(0, 0));
+            AssertHelper.ApproximatelyEqual(Color.gray, ExtendedTextures.gray.GetPixel(0, 0));
+            AssertHelper.ApproximatelyEqual(ExtendedColors.brown, ExtendedTextures.brown.GetPixel(0, 0), 0.003f);
+            AssertHelper.ApproximatelyEqual(ExtendedColors.orange, ExtendedTextures.orange.GetPixel(0, 0));
+            Assert.AreEqual(Color.yellow, ExtendedTextures.yellow.GetPixel(0, 0));
+            Assert.AreEqual(Color.red, ExtendedTextures.red.GetPixel(0, 0));
+            Assert.AreEqual(Color.green, ExtendedTextures.green.GetPixel(0, 0));
+            Assert.AreEqual(Color.blue, ExtendedTextures.blue.GetPixel(0, 0));
+            AssertHelper.ApproximatelyEqual(ExtendedColors.purple, ExtendedTextures.purple.GetPixel(0, 0));
+            Assert.AreEqual(Color.cyan, ExtendedTextures.cyan.GetPixel(0, 0));
+            Assert.AreEqual(Color.magenta, ExtendedTextures.magenta.GetPixel(0, 0));
+            Assert.IsNotNull(ExtendedTextures.randomColor);
+        }
+    }
+}

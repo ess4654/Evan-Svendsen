@@ -1,0 +1,182 @@
+﻿/*
+ HELPER EXTENSIONS CLASS
+ EXTENDED STRINGS
+ v1.15
+ LAST EDITED: FRIDAY DECEMBER 29, 2023
+ COPYRIGHT © TECH SKULL STUDIOS
+*/
+
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using UnityEngine;
+
+namespace Helpers.Extensions
+{
+    /// <summary>
+    /// Extends the functionality of String types
+    /// </summary>
+    public static class ExtendedStrings
+    {
+        /// <summary>
+        /// Converts a string into an int.
+        /// </summary>
+        /// <param name="s">String to convert.</param>
+        /// <returns>String as an int.</returns>
+        public static int ToInt(this string s)
+        {
+            if (s == null) return default;
+            int.TryParse(s, out int i);
+            return i;
+        }
+
+        /// <summary>
+        /// Converts a string into a float.
+        /// </summary>
+        /// <param name="s">String to convert.</param>
+        /// <returns>String as a float.</returns>
+        public static float ToFloat(this string s)
+        {
+            if (s == null) return default;
+            float.TryParse(s, out float f);
+            return f;
+        }
+
+        /// <summary>
+        /// Returns an array of all indexes of a matching character in a string
+        /// </summary>
+        /// <param name="s">String to search.</param>
+        /// <param name="selector">Character to search for.</param>
+        /// <returns>Array of indexes.</returns>
+        public static int[] FindAll(this string s, char selector)
+        {
+            if (s == null) return new int[] { };
+            var c_string = s.ToCharArray();
+            List<int> array = new List<int>();
+            for (int i = 0; i < c_string.Length; i++)
+                if (selector == c_string[i])
+                    array.Add(i);
+            return array.ToArray();
+        }
+
+        /// <summary>
+        /// Taken an input string returns true if string contains any of the params.
+        /// </summary>
+        /// <param name="s">Input string to compare.</param>
+        /// <param name="ss">List of strings to compare it to.</param>
+        /// <returns>True if any params are contained within the string.</returns>
+        public static bool ContainsAny(this string s, params string[] ss)
+        {
+            if (s == null) return false;
+            for (var i = 0; i < ss.Length; i++)
+                if (s.Contains(ss[i])) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Taken an input string returns true if string contains all of the given params.
+        /// </summary>
+        /// <param name="s">Input string to compare.</param>
+        /// <param name="ss">List of strings to compare it to.</param>
+        /// <returns>True if all of the params are contained within the string.</returns>
+        public static bool ContainsAll(this string s, params string[] ss)
+        {
+            if (s == null) return false;
+            for (var i = 0; i < ss.Length; i++)
+                if (!s.Contains(ss[i])) return false;
+            return true;
+        }
+
+        /// <summary>
+        /// Returns whether or not a string is Null or is just Whitespace.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <returns>True if string is null or whitespace.</returns>
+        public static bool IsNullOrWhiteSpace(this string s)
+        => string.IsNullOrWhiteSpace(s);
+
+        /// <summary>
+        /// Returns whether or not a string is Null or is Empty.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <returns>True if string is null or empty.</returns>
+        public static bool IsNullOrEmpty(this string s)
+        => string.IsNullOrEmpty(s);
+
+        /// <summary>
+        /// Returns the string with all instances of the given value removed.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <param name="value">Substring to remove.</param>
+        /// <returns>Filtered string.</returns>
+        public static string Erase(this string s, string value)
+        => s != null ? s.Replace(value, "") : string.Empty;
+
+        /// <summary>
+        /// Returns the string with all instances of a series of given values removed.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <param name="values">Substrings to remove as params.</param>
+        /// <returns>Filtered string.</returns>
+        public static string EraseAll(this string s, params string[] values)
+        {
+            if (s == null) return string.Empty;
+            foreach (var ss in values)
+                s = s.Erase(ss);
+            return s;
+        }
+
+        /// <summary>
+        /// Returns a string formatted in Camel Case.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <returns>Camel Case version of the string.</returns>
+        public static string ToCamelCase(this string s)
+        => s != null ? CultureInfo.CurrentCulture.TextInfo.ToTitleCase(s.ToLower()) : null;
+
+        /// <summary>
+        /// Trims a string given an indent from the start and end.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <param name="startIndent">Amount of characters to remove from the front.</param>
+        /// <param name="endIndent">Amount of characters to remove from the end.</param>
+        /// <returns>String that has been trimmed from both ends</returns>
+        public static string Trim(this string s, int startIndent, int endIndent)
+        {
+            if (s == null) return null;
+            var length = s.Length - startIndent - endIndent;
+            length = Mathf.Min(length, s.Length - startIndent);
+            if (length > 0)
+                return s.Substring(startIndent, length);
+            return "";
+        }
+
+        /// <summary>
+        /// Reverses a string.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <returns>Reversed copy of the string</returns>
+        public static string Reverse(this string s)
+        => s != null ? new string(s.ToCharArray().Reverse().ToArray()) : null;
+
+        /// <summary>
+        /// Check whether or not the value matches regardless of case sensitivity.
+        /// ie. "Fishing Rod" matches and is equivalent to "fishing rod"
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <param name="value">Value to compare.</param>
+        /// <returns>True if the value of both strings match.</returns>
+        public static bool Matches(this string s, string value)
+        => s != null ? s.ToLower() == value.ToLower() : value == null;
+
+        /// <summary>
+        /// Converts the value of objects to strings based on the
+        /// formats specified and inserts them into another string.
+        /// </summary>
+        /// <param name="s">Reference to the string.</param>
+        /// <param name="args">Objects to insert into the string.</param>
+        /// <returns>Newly formatted string</returns>
+        public static string Format(this string s, params object[] args)
+        => s != null ? string.Format(s, args) : null;
+    }
+}

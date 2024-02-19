@@ -1,9 +1,19 @@
 import React, { memo } from "react";
 
+import "../../css/code.css";
+
 import { Page } from "../pages";
 import { Website } from "../cards";
 import { Info } from "../info-section";
-import { Video } from "../components";
+import { Video, Code } from "../components";
+
+import {
+    ExtendedStrings,
+    ExtendedStringsTests,
+    ExtendedTextures,
+    ExtendedTextureTests
+} from "../../code";
+import { spine1, spine2 } from "../../videos";
 
 import {
     hikerLink,
@@ -21,17 +31,72 @@ import {
     studCollector
 } from "../../img/ux-ui";
 
-const spine1 = require('../../videos/Spine_Phaser.mp4');
-const spine2 = require('../../videos/Spine_Arcade.mp4');
+//load data from script files
+var extendedStrings = "";
+fetch(ExtendedStrings)
+ .then(r => r.text())
+ .then(text => {
+    extendedStrings = text;
+});
+
+var extendedStringsTests = "";
+fetch(ExtendedStringsTests)
+ .then(r => r.text())
+ .then(text => {
+    extendedStringsTests = text;
+});
+
+var extendedTextures = "";
+fetch(ExtendedTextures)
+ .then(r => r.text())
+ .then(text => {
+    extendedTextures = text;
+});
+
+var extendedTextureTests = "";
+fetch(ExtendedTextureTests)
+ .then(r => r.text())
+ .then(text => {
+    extendedTextureTests = text;
+});
 
 const DemoReel = () =>
 <Page>
     <h2 id="reel" style={{fontWeight: "bold"}}>DEMO REEL</h2>
     
     {/* Code */}
-    {/*<Info id="code" title="Code Examples">
-
-    </Info>*/}
+    <Info id="code" title="Code Examples">
+        <p>
+            The following are examples of C# Unity scripts that are taken from my Asset Store package <a href="#" onClick={() => alert("Asset pending Unity approval.")}>UExtensions</a>. 
+            The asset store pack contains more than 70 scripts and over 1000 extension methods to extend the functionality of C# and Unity specific classes.
+            The entire package is well documented including examples of using each method, and all scripts are unit tested. I have paired here the script and it's corresponding unit
+            test which demonstrates how I write production quality bug tested code. You are welcome to download these scripts and use them in your project for free, and if you want the complete toolset feel free to purchase the asset <a href="#" onClick={() => alert("Asset pending Unity approval.")}>here</a>.
+        </p>
+        <Code
+            code={extendedStrings}
+            language="csharp"
+            header="Extended Strings"
+            filename="ExtendedStrings.cs"
+        />
+        <Code
+            code={extendedStringsTests}
+            language="csharp"
+            header="Extended String Tests"
+            filename="ExtendedStringTests.cs"
+        />
+        <Code
+            code={extendedTextures}
+            language="csharp"
+            header="Extended Textures"
+            filename="ExtendedTextures.cs"
+        />
+        <Code
+            code={extendedTextureTests}
+            language="csharp"
+            header="Extended Texture Tests"
+            filename="ExtendedTextureTests.cs"
+        />
+    </Info>
 
     {/* Spine Animations */}
     <Info id="spine" title="Spine Animations">

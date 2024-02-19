@@ -1,0 +1,46 @@
+.code-block
+{
+    margin: 10px;
+    display: inline-block;
+    width: 45%;
+}
+@media (max-width: 991px)
+{
+    .code-block {
+        margin: 10px 0;
+        width: 100%;
+    }
+}
+.code-block h4 span
+{
+    display: inline-flex;
+    float: right;
+}
+.code-block h4 span button,
+.code-block h4 span .btn
+{
+    background: #AFA7C5;
+    position: relative;
+    border: none;
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+    max-width: 30px;
+    padding: 0;
+    right: 0;
+    margin-left: 5px;
+}
+.code-block h4 span button:focus,
+.code-block h4 span button:active
+{
+    box-shadow: 0 0 0 0.2rem #00d99d50;
+    background-color:#00D99D!important;
+    color: black!important;
+}
+.code-block h4 span button:hover,
+.code-block h4 span .btn:hover
+{
+    background: #afa7c5;
+    color: black;
+    border: none;
+}
