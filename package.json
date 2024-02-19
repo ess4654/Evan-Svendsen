@@ -1,5 +1,5 @@
 {
-  "homepage": "https://ess4654.github.io/Evan-Svendsen",
+  "homepage": ".", 
   "name": "evan-svendsen",
   "version": "0.1.1",
   "private": true,
@@ -23,10 +23,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "react-scripts build",
     "deploy": "touch ./build/.nojekyll && gh-pages -d build -t true"
   },
   "eslintConfig": {
