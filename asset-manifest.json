@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Evan-Svendsen/static/css/main.36f19002.css",
-    "main.js": "/Evan-Svendsen/static/js/main.45ed9070.js",
+    "main.js": "/Evan-Svendsen/static/js/main.9add4817.js",
     "reactPlayerYouTube.js": "/Evan-Svendsen/static/js/reactPlayerYouTube.6efd5c99.chunk.js",
     "reactPlayerSoundCloud.js": "/Evan-Svendsen/static/js/reactPlayerSoundCloud.658eceb1.chunk.js",
     "reactPlayerVimeo.js": "/Evan-Svendsen/static/js/reactPlayerVimeo.bdb95e1e.chunk.js",
@@ -58,7 +58,7 @@
     "static/media/js.png": "/Evan-Svendsen/static/media/js.8bc7ba2741380af6c309.png",
     "index.html": "/Evan-Svendsen/index.html",
     "main.36f19002.css.map": "/Evan-Svendsen/static/css/main.36f19002.css.map",
-    "main.45ed9070.js.map": "/Evan-Svendsen/static/js/main.45ed9070.js.map",
+    "main.9add4817.js.map": "/Evan-Svendsen/static/js/main.9add4817.js.map",
     "reactPlayerYouTube.6efd5c99.chunk.js.map": "/Evan-Svendsen/static/js/reactPlayerYouTube.6efd5c99.chunk.js.map",
     "reactPlayerSoundCloud.658eceb1.chunk.js.map": "/Evan-Svendsen/static/js/reactPlayerSoundCloud.658eceb1.chunk.js.map",
     "reactPlayerVimeo.bdb95e1e.chunk.js.map": "/Evan-Svendsen/static/js/reactPlayerVimeo.bdb95e1e.chunk.js.map",
@@ -76,6 +76,6 @@
   },
   "entrypoints": [
     "static/css/main.36f19002.css",
-    "static/js/main.45ed9070.js"
+    "static/js/main.9add4817.js"
   ]
 }
