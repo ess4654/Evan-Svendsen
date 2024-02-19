@@ -187,7 +187,7 @@ namespace UExtensions.Tests
         void TestFormat()
         {
             Assert.AreEqual("The current price is $123.50 per ounce.", "The current price is ${0:F2} per ounce.".Format(123.50f));
-            Assert.AreEqual("The temperature is 123�C.", "The temperature is {0}�C.".Format(123f));
+            Assert.AreEqual("The temperature is 123°C.", "The temperature is {0}°C.".Format(123f));
             var now = DateTime.Now;
             Assert.AreEqual($"It is now {now:d} at {now:t}", "It is now {0:d} at {0:t}".Format(now));
             Assert.AreEqual("At Banff in January, the temperature was -40 degrees.", "At {0} in {1:MMMM}, the temperature was {2} degrees.".Format("Banff", new DateTime(2024, 1, 1), -40));

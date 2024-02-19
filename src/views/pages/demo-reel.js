@@ -23,9 +23,12 @@ import {
 } from "../../img/websites";
 
 import {
+    onlineWare,
+    dealStealer,
     hdsSandbox,
     hdsStickers,
     cds,
+    cds2,
     beatTheMarkets1,
     beatTheMarkets2,
     studCollector
@@ -114,13 +117,15 @@ const DemoReel = () =>
     
     {/* UI / UX */}
     <Info id="ui-ux" title="UI / UX Design">
-        <Website src={hdsSandbox} name="Meese Flock" />
-        <Website src={hdsStickers} name="Meese Flock" />
-        <Website src={cds} name="Mr Cool Ice Cream" />
-        <Website src={beatTheMarkets1} name="Meese Flock" />
-        <Website src={beatTheMarkets1} name="Meese Flock" />
-        <Website src={beatTheMarkets2} name="Meese Flock" />
-        <Website src={studCollector} name="Mr Cool Ice Cream" />
+        <Website src={onlineWare} name="Online Ware" />
+        <Website src={dealStealer} name="Deal Stealer" />
+        <Website src={hdsSandbox} name="Halloween Decoration Sandbox" />
+        <Website src={hdsStickers} name="Halloween Decoration Sandbox" />
+        <Website src={cds2} name="Christmas Decoration Sandbox" />
+        <Website src={cds} name="Christmas Decoration Sandbox" />
+        <Website src={beatTheMarkets2} name="Beat The Markets" />
+        <Website src={beatTheMarkets1} name="Beat The Markets" />
+        <Website src={studCollector} name="Stud Collector" />
     </Info>
 </Page>;
 
