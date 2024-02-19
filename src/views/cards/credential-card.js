@@ -11,7 +11,7 @@ export class Credential extends Component
     render()
     {
         return(
-            <a className="credential-link" href={this.props.href} target="_blank">
+            <a className="credential-link" href={this.props.href} target="_blank" rel="noreferrer">
             <Card className="credential">
                 <h3 className="card-title" style={{...this.props.nameStyle}}>{this.props.name}</h3>
                 <img className="card-img-top" src={this.props.src} alt={this.props.name} style={{minHeight: 160, ...this.props.srcStyle}} />

@@ -14,7 +14,7 @@ function App() {
           <Route path='*' element={<HomePage />} />
           
           <Route exact path="/" element = {<HomePage />} />
-          <Route path="/demo-reel" element = {<DemoReel />} />
+          <Route path="/Evan-Svendsen/demo-reel" element = {<DemoReel />} />
         </Routes>
       </div>
   );
