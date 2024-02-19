@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     height: 50px;
-    width: 100%;
+    width: 101%;
     z-index: 800;
     padding: 2px;
     padding-top: 4px;
@@ -14,6 +14,7 @@
     margin: auto;
     font-size: 16px;
     vertical-align: middle;
+    overflow: hidden;
 }
 
 .header button
@@ -25,6 +26,7 @@
     border: none;
     max-height: 36px;
     font-weight: bold;
+    overflow-y: hidden;
 }
 
 .header button:focus,
@@ -51,13 +53,29 @@
     text-transform: uppercase;
     font-weight: bold;
     float: left;
-    margin-left: 10px;
+    margin-left: 0;
+    padding-left: 10px;
+    max-height: 50px;
+    overflow: clip;
+    text-align: initial;
+    word-break: break-all;
 }
-
+@media (max-width: 400px)
+{
+    .header .title {
+        width: 320px;
+    }
+}
+@media (max-width: 390px)
+{
+    .header .title {
+        max-width: 180px;
+    }
+}
 .header .btn-row
 {
     position: absolute;
-    right: 10px;
+    right: 20px;
 }
 
 .header .btn-row#main {
@@ -84,12 +102,11 @@
         display: none;
     }
 }
-
 .nav-menu
 {
     transition-property: right;
     transition-duration: .6s;
-    position: absolute;
+    position: fixed;
     top: 50px;
     background: #afa7c5;
     height: calc(100vh - 90px);
@@ -99,9 +116,9 @@
     right: -25vw;
 }
 .nav-menu.open {
-    right: 0;
+    right: -1px;
 }
-@media (max-width: 710px)
+@media (max-width: 730px)
 {
     .nav-menu {
         width: 35vw;
@@ -125,11 +142,13 @@
         display: flex!important;
         font: -webkit-small-control;
         font-weight: bold;
+        text-align: left;
     }
 }
 .nav-menu button,
 .nav-menu .btn
 {
+    width: 100%;
     display: block;
     width: -webkit-fill-available;
     text-decoration: underline #afa7c5;
@@ -146,4 +165,9 @@
 .nav-menu .btn:active
 {
     text-decoration: underline #00D99D;
+}
+.header .svg-inline--fa
+{
+    min-width: 16px;
+    min-height: 16px;
 }
