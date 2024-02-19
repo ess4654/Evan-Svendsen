@@ -1,0 +1,304 @@
+﻿/*
+ HELPER EXTENSION CLASS
+ EXTENDED TEXTURES
+ v1.3
+ LAST EDITED: SATURDAY JANUARY 6, 2024
+ COPYRIGHT © TECH SKULL STUDIOS
+*/
+
+using UnityEngine;
+
+namespace Helpers.Extensions
+{
+    /// <summary>
+    /// Extends the functionality of Textures
+    /// </summary>
+    public static class ExtendedTextures
+    {
+        #region TRANSFORMATIONS
+
+        /// <summary>
+        /// Rescales a texture to a new size.
+        /// </summary>
+        /// <param name="source">Reference to texture to resize.</param>
+        /// <param name="targetWidth">New width of the texture.</param>
+        /// <param name="targetHeight">New height of the texture.</param>
+        /// <returns>Rescaled texture.</returns>
+        public static Texture2D Rescale(this Texture2D source, int targetWidth, int targetHeight)
+        {
+            if(source == null) return null;
+            var size = targetWidth * targetHeight;
+            Color[] newColors = new Color[size > 0 ? size : 1];
+            for (int i = 0; i < targetHeight; i++)
+            {
+                for (int j = 0; j < targetWidth; j++)
+                {
+                    Color newColor = source.GetPixelBilinear(j / (float)targetWidth, i / (float)targetHeight);
+                    newColors[i * targetWidth + j] = newColor;
+                }
+            }
+
+            var format =
+                (!source.CompressedFormat()) ? source.format : TextureFormat.RGBA32;
+            targetWidth = targetWidth > 0 ? targetWidth : 1;
+            targetHeight = targetHeight > 0 ? targetHeight : 1;
+            Texture2D result = new Texture2D(targetWidth, targetHeight, format, false);
+            result.SetPixels(newColors);
+            result.Apply();
+            return result;
+        }
+
+        static bool CompressedFormat(this Texture2D tex)
+        {
+            return tex && tex.format.Is(
+                    TextureFormat.DXT1,
+                    TextureFormat.DXT1Crunched,
+                    TextureFormat.DXT5,
+                    TextureFormat.DXT5Crunched,
+                    TextureFormat.BC4,
+                    TextureFormat.BC5,
+                    TextureFormat.BC6H,
+                    TextureFormat.BC7);
+        }
+
+        /// <summary>
+        /// Flips a texture either vertically or horizontally.
+        /// </summary>
+        /// <param name="original">Reference to original texture.</param>
+        /// <param name="upSideDown">Vertical if true otherwise horizontal.</param>
+        /// <returns>Flipped texture.</returns>
+        public static Texture2D Flip(this Texture2D original, bool upSideDown = true)
+        {
+            if(original == null) return null;
+            int xN = original.width;
+            int yN = original.height;
+            Color[] pixels = original.GetPixels(0, 0, xN, yN);
+            Color[] flippedPixels = new Color[pixels.Length];
+
+            for (int i = 0; i < xN; i++)
+            {
+                for (int j = 0; j < yN; j++)
+                {
+                    if (!upSideDown)
+                    {
+                        //flipped.SetPixel(j, xN - i - 1, original.GetPixel(j, i));
+                        flippedPixels[j * xN + (xN - i - 1)] = pixels[j * xN + i];
+                    }
+                    else
+                    {
+                        //flipped.SetPixel(xN - i - 1, j, original.GetPixel(i, j));
+                        flippedPixels[(xN - i - 1) * xN + j] = pixels[i * xN + j];
+                    }
+                }
+            }
+            
+            Texture2D flipped = new Texture2D(xN, yN);
+            flipped.SetPixels(flippedPixels);
+            flipped.Apply();
+
+            return flipped;
+        }
+
+        /// <summary>
+        /// Rotates a texture by 90 degrees either clockwise or counterclockwise.
+        /// </summary>
+        /// <param name="originalTexture">Reference to original texture.</param>
+        /// <param name="clockwise">Direction to rotate the texture.</param>
+        /// <returns>Rotated texture as copy.</returns>
+        public static Texture2D Rotate(this Texture2D originalTexture, bool clockwise = true)
+        {
+            if(originalTexture == null) return null;
+            Color32[] original = originalTexture.GetPixels32();
+            Color32[] rotated = new Color32[original.Length];
+            int w = originalTexture.width;
+            int h = originalTexture.height;
+
+            int iRotated, iOriginal;
+
+            for (int j = 0; j < h; ++j)
+            {
+                for (int i = 0; i < w; ++i)
+                {
+                    iRotated = (i + 1) * h - j - 1;
+                    iOriginal = clockwise ? original.Length - 1 - (j * w + i) : j * w + i;
+                    rotated[iRotated] = original[iOriginal];
+                }
+            }
+
+            Texture2D rotatedTexture = new Texture2D(h, w);
+            rotatedTexture.SetPixels32(rotated);
+            rotatedTexture.Apply();
+            return rotatedTexture;
+        }
+
+        #endregion
+
+        #region COLOR
+
+        /// <summary>
+        /// Change the color of every pixel of a texture.
+        /// </summary>
+        /// <param name="tex">Reference to the texture.</param>
+        /// <param name="color">Color to set each pixel to.</param>
+        /// <returns>New modified texture.</returns>
+        public static Texture2D ChangeColor(this Texture2D tex, Color color)
+        {
+            if(tex == null) return null;
+            bool compressed = tex.CompressedFormat();
+            if (tex.format.Is(TextureFormat.RGBA32, TextureFormat.BGRA32))
+            {
+                var colors32 = tex.GetPixels32();
+                for (var i = 0; i < colors32.Length; i++)
+                    colors32[i] = color;
+                if(!compressed)
+                    tex.SetPixels32(colors32);
+            }
+            else
+            {
+                var colors = tex.GetPixels();
+                for (var i = 0; i < colors.Length; i++)
+                    colors[i] = color;
+                if(!compressed)
+                    tex.SetPixels(colors);
+            }
+
+            if(!compressed)
+            {
+                tex.Apply();
+                return tex;
+            }
+            else
+            {
+                return CreateFromColor(color, tex.width, tex.height);
+            }
+        }
+
+        #region PIXEL COLOR MODIFICATION
+
+        /// <summary>
+        /// Converts the texture to a black and white image.
+        /// </summary>
+        /// <param name="tex">Reference to the texture.</param>
+        /// <returns>Black and white image</returns>
+        public static Texture2D ToBW(this Texture2D tex)
+        => tex.ModifyTexturePixels(c => c.ToBW());
+
+        /// <summary>
+        /// Inverses the colors of the texture.
+        /// </summary>
+        /// <param name="tex">Reference to the texture.</param>
+        /// <returns>Inverse of the texture</returns>
+        public static Texture2D Inverse(this Texture2D tex)
+        => tex.ModifyTexturePixels(c => c.Inverse());
+
+        private delegate Color ModPixel(Color input);
+        private static Texture2D ModifyTexturePixels(this Texture2D tex, ModPixel mod)
+        {
+            if (tex == null) return null;
+            var colors = tex.GetPixels();
+            for (int i = 0; i < colors.Length; i++)
+                colors[i] = mod(colors[i]);
+
+            var newTexture = new Texture2D(tex.width, tex.height);
+            newTexture.SetPixels(colors);
+            newTexture.Apply();
+            return newTexture;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Creates a new texture of a given size with all pixels of a given color.
+        /// </summary>
+        /// <param name="color">Color of the texture.</param>
+        /// <param name="width">Width of the texture.</param>
+        /// <param name="height">Height of the texture.</param>
+        /// <returns>New Colored Texture2D</returns>
+        public static Texture2D CreateFromColor(Color color, int width = 1, int height = 1)
+        => new Texture2D(width, height).ChangeColor(color);
+
+        #region CONSTANT COLORED TEXTURES
+
+        /// <summary>
+        /// Gets a small texture with all clear pixels.
+        /// </summary>
+        public static Texture2D transparent => CreateFromColor(Color.clear);
+
+        /// <summary>
+        /// Gets a small texture with all black pixels.
+        /// </summary>
+        public static Texture2D black => CreateFromColor(Color.black);
+
+        /// <summary>
+        /// Gets a small texture with all white pixels.
+        /// </summary>
+        public static Texture2D white => CreateFromColor(Color.white);
+
+        /// <summary>
+        /// Gets a small texture with all gray pixels.
+        /// </summary>
+        public static Texture2D gray => CreateFromColor(Color.gray);
+
+        /// <summary>
+        /// Gets a small texture with all brown pixels.
+        /// </summary>
+        public static Texture2D brown => CreateFromColor(ExtendedColors.brown);
+
+        /// <summary>
+        /// Gets a small texture with all orange pixels.
+        /// </summary>
+        public static Texture2D orange => CreateFromColor(ExtendedColors.orange);
+
+        /// <summary>
+        /// Gets a small texture with all yellow pixels.
+        /// </summary>
+        public static Texture2D yellow => CreateFromColor(Color.yellow);
+
+        /// <summary>
+        /// Gets a small texture with all green pixels.
+        /// </summary>
+        public static Texture2D red => CreateFromColor(Color.red);
+
+        /// <summary>
+        /// Gets a small texture with all green pixels.
+        /// </summary>
+        public static Texture2D green => CreateFromColor(Color.green);
+
+        /// <summary>
+        /// Gets a small texture with all blue pixels.
+        /// </summary>
+        public static Texture2D blue => CreateFromColor(Color.blue);
+
+        /// <summary>
+        /// Gets a small texture with all purple pixels.
+        /// </summary>
+        public static Texture2D purple => CreateFromColor(ExtendedColors.purple);
+
+        /// <summary>
+        /// Gets a small texture with all cyan pixels.
+        /// </summary>
+        public static Texture2D cyan => CreateFromColor(Color.cyan);
+
+        /// <summary>
+        /// Gets a small texture with all magenta pixels.
+        /// </summary>
+        public static Texture2D magenta => CreateFromColor(Color.magenta);
+
+        /// <summary>
+        /// Gets a small texture with of random color for all pixels.
+        /// </summary>
+        public static Texture2D randomColor => CreateFromColor(ExtendedColors.RandomColor);
+
+        #endregion
+
+        #endregion
+
+        /// <summary>
+        /// Creates a new sprite using the texture.
+        /// </summary>
+        /// <param name="tex">Reference to the texture.</param>
+        /// <returns>The texture as a sprite</returns>
+        public static Sprite ToSprite(this Texture2D tex)
+        => tex != null ? Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero) : null;
+    }
+}

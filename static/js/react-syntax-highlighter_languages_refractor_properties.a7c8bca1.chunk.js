@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkevan_svendsen=self.webpackChunkevan_svendsen||[]).push([[5559],{5190:e=>{function n(e){e.languages.properties={comment:/^[ \t]*[#!].*$/m,"attr-value":{pattern:/(^[ \t]*(?:\\(?:\r\n|[\s\S])|[^\\\s:=])+(?: *[=:] *(?! )| ))(?:\\(?:\r\n|[\s\S])|[^\\\r\n])+/m,lookbehind:!0},"attr-name":/^[ \t]*(?:\\(?:\r\n|[\s\S])|[^\\\s:=])+(?= *[=:]| )/m,punctuation:/[=:]/}}e.exports=n,n.displayName="properties",n.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_properties.a7c8bca1.chunk.js.map
