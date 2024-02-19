@@ -34,9 +34,9 @@ const Code = ({
     filename
 }) =>
 <div className="code-block">
-    <h4>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{header}
-        <span>
+    <h4 style={{marginBottom: 10}}>
+        <span style={{marginLeft: "16%"}}>{header}</span>
+        <span className="download">
             <Button onClick={() => copy(code)}><FontAwesomeIcon icon={faCopy}/></Button>
             <Button onClick={() => download(code, filename)}><FontAwesomeIcon icon={faDownload}/></Button>
         </span>
@@ -47,7 +47,7 @@ const Code = ({
         showLineNumbers={true}
         wrapLongLines={false}
         theme={theme}
-        customStyle={{textAlign: "left", height: 400, overflowY: "scroll"}}
+        customStyle={{textAlign: "left", height: 400}}
     />
 </div>;
 

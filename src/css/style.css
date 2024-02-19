@@ -2,7 +2,6 @@
 *
 {
     cursor: pointer;
-    overflow-x: hidden!important;
 }
 
 h1, h2, h3, h4, h5, h6, p, .alert
@@ -27,8 +26,11 @@ a:hover
     color: #45e4ba;
 }
 
-.App-header
-{
+.App {
+    overflow-x: hidden!important;
+}
+
+.App-header {
     background: radial-gradient(#414753, #282c34);
 }
 
@@ -100,4 +102,8 @@ Button
     {
         text-align: center;
     }
+}
+
+.react-player {
+    overflow: hidden;
 }
